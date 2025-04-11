@@ -34,13 +34,13 @@ public class BirdController {
      * @param birdId
      * @return one bird object
      */
-    @GetMapping("/{birdId}")
+ /**   @GetMapping("/{birdId}")
     public Object getOneBird(@PathVariable int birdId, Model model){
         //return new ResponseEntity<>(birdService.getBirdById(birdId), HttpStatus.OK);
         model.addAttribute("bird", birdService.getBirdById(birdId));
         model.addAttribute("title" , "Bird #: " + birdId);
         return "bird-details";
-    }
+    }**/
 
     /**
      * get good birds by family
@@ -141,8 +141,16 @@ public class BirdController {
         return "redirect:/birds/all";
     }
 
-    @GetMapping("/birds/about")
-    public Object about(){
+    @GetMapping("/about")
+    public Object aboutPage(){
         return "birds-about";
     }
+
+    @GetMapping("/details/{birdId}")
+    public Object getOneBird(@PathVariable int birdId, Model model){
+        model.addAttribute("bird", birdService.getBirdById(birdId));
+        model.addAttribute("title", "Bird: " + birdService.getBirdById(birdId).getSpecies());
+        return "bird-details";
+    }
+
 }

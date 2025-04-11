@@ -19,9 +19,9 @@
 </nav>
 <form id="update-bird" action="/birds/update/${bird.birdId}" method="post">
 
-    <label for="name">Bird name: </label><input type="text" id="name" name="name" placeholder="${bird.name}"><br>
-    <label for="family">Family: </label><input type="text" id="family" name="family" placeholder="${bird.family}"><br>
-    <label for="species">Species: </label><input type="text" id="species" name="species" placeholder="${bird.species}"><br>
+    <label for="name">Bird name: </label><input type="text" id="name" name="name" value="${bird.name}"><br>
+    <label for="family">Family: </label><input type="text" id="family" name="family" value="${bird.family}"><br>
+    <label for="species">Species: </label><input type="text" id="species" name="species" value="${bird.species}"><br>
     <label for="description">Description: </label><textarea type="text" id="description" name="description" placeholder="${bird.description}"></textarea><br>
     <input type="reset"><br>
     <input type="submit">

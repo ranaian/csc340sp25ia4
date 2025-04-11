@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/style.css" />
-
-    <title>Corvus Corax</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Specific Bird Details</title>
 </head>
 <body>
 <h1>Details</h1>
 <nav class="navbar">
     <ul>
-        <li><a href="bird-list.ftlh">Home</a></li>
-        <li><a href="birds-about.html">About</a></li>
-        <li><a href="bird-details.ftlh">Details</a></li>
-        <li><a href="bird-create.ftlh">New Bird</a></li>
-        <li><a href="bird-update.ftlh">Update Bird</a> </li>
+        <li><a href="/birds/all">Home</a></li>
+        <li><a href="/birds/about">About</a></li>
+        <!--<li><a href="/birds/details">Details</a></li>-->
+        <li><a href="/birds/new">New Bird</a></li>
+        <!-- <li><a href="/birds/update">Update Bird</a> </li>-->
     </ul>
 </nav>
 <main>
-    <h1>Corvus Corax: the Common Raven</h1>
+<!--    <h1>Corvus Corax: the Common Raven</h1>
     <pre>
         The Common Raven is a large, black, passerine bird. It is the most widespread corvid, found across the world in the northern hemisphere.
     </pre
@@ -60,7 +59,21 @@
         Ravens typically mate for life, though some have been observed participating in infidelity. As ravens are some of
         the most intelligent birds, I believe it is our duty to teach them the Christian faith, so that these cheating
         birds know the damage to their souls they commit by galavanting with, by raven standards, married women.
-      </pre>
+      </pre> -->
+
+    <div class="container">
+        <div class="card">
+            <h3 class="card-header">${bird.name}</h3>
+            <div class="card-body">
+                <span><a style="float:right" href="/birds/update/${bird.birdId}" class="btn btn-secondary">Update Bird</a></span>
+                <h5 class="card-title">ID: ${bird.birdId}</h5>
+                <!--    <p class="card-text">Name: ${bird.name}</p>     -->
+                <p class="card-text"><a href="/birds/family/${bird.family}">Family: ${bird.family}</a></p>
+                <p class="card-text">Species: ${bird.species}</p>
+                <p class="card-text">Description: ${bird.description}</p>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 </html>

@@ -73,7 +73,8 @@
             </tr>
             <#list birdList as bird>
             <tr>
-                <td><a href="/birds/${bird.birdId}">${bird.birdId}</a></td>
+                <td>${bird.birdId}</td>
+                <!--    <td><a href="/birds/${bird.birdId}">${bird.birdId}</a></td> -->
                 <td>${bird.name}</td>
                 <td><a href="/birds/family/${bird.family}">${bird.family}</a></td>
                 <td><a href="/birds/details/${bird.birdId}">${bird.species}</a></td>
