@@ -71,6 +71,16 @@ public class BirdController {
     }
 
 
+    /**
+     * get for bird-create.ftlh
+     */
+    @GetMapping("/new")
+    public Object addNewBird(Model model){
+        Bird newBird = new Bird();
+        model.addAttribute("bird", newBird);
+        model.addAttribute("title", "Create a new Bird");
+        return "bird-create";
+    }
 
     /**
      * Invent a totally new bird, unknown to traditional science!
@@ -100,19 +110,39 @@ public class BirdController {
      * @param bird the new updated bird details
      * @return the updated bird object
      */
-    @PutMapping("/update/{birdId}")
+    /**
+     * display the update bird form
+     * @param birdId
+     * @param model
+     * @return
+     */
+    @GetMapping("/update/{birdId}")
     public Object updateBird(@PathVariable int birdId, Model model){
         //birdService.updateBird(birdId, bird);
         model.addAttribute("bird", birdService.getBirdById(birdId));
-        //model.addAttribute("")
         return "bird-update";
     }
 
-    @DeleteMapping("/delete/{birdId}")
+    /**
+     * actually update the bird object i think?
+     * @param birdId
+     * @return
+     */
+    @PostMapping("/update/{birdId}")
+    public Object updateBird(@PathVariable int birdId, Bird bird){
+        birdService.updateBird(birdId, bird);
+        return "redirect:/birds/all";
+    }
+
+    @GetMapping("/delete/{birdId}")
     public Object deleteBirdById(@PathVariable int birdId) {
         birdService.deleteBirdById(birdId);
         //return new ResponseEntity<>(birdService.getAllBirds(), HttpStatus.OK);
         return "redirect:/birds/all";
     }
 
+    @GetMapping("/birds/about")
+    public Object about(){
+        return "birds-about";
+    }
 }

@@ -12,7 +12,7 @@
 <nav class="navbar">
     <ul>
         <li><a href="bird-list.ftlh">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="birds-about.html">About</a></li>
         <li><a href="bird-details.ftlh">Details</a></li>
         <li><a href="bird-create.ftlh">New Bird</a></li>
         <li><a href="bird-update.ftlh">Update Bird</a> </li>

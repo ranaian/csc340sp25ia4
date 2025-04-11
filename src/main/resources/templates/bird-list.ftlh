@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Some Good Birds</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <title>Some Good Birds</title>
+
 </head>
 
 <body>
@@ -12,10 +13,10 @@
 <nav class="navbar">
     <ul>
         <li><a href="/birds/all">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="/birds/details">Details</a></li>
+        <li><a href="/birds/about">About</a></li>
+        <!--<li><a href="/birds/details">Details</a></li>-->
         <li><a href="/birds/new">New Bird</a></li>
-        <li><a href="/birds/update">Update Bird</a> </li>
+        <!-- <li><a href="/birds/update">Update Bird</a> </li>-->
     </ul>
 </nav>
 
@@ -70,12 +71,18 @@
                 <th>Species</th>
                 <th>Actions</th>
             </tr>
+            <#list birdList as bird>
             <tr>
-                <td><a href="/birds/${bird.birdId?c}">${bird.birdId?c}</a></td>
+                <td><a href="/birds/${bird.birdId}">${bird.birdId}</a></td>
                 <td>${bird.name}</td>
-                <td><a href="/birds/family/${bird.family?c}">${bird.family}</a></td>
-                <td><a href="/birds/${bird.species?c}">${bird.species?c}</a></td>
+                <td><a href="/birds/family/${bird.family}">${bird.family}</a></td>
+                <td><a href="/birds/details/${bird.birdId}">${bird.species}</a></td>
+                <td>
+                    <a href="/birds/update/${bird.birdId}" class="btn btn-secondary">update</a>
+                    <a href="/birds/delete/${bird.birdId}" class="btn btn-danger">delete</a>
+                </td>
             </tr>
+            </#list>
         </table>
     </div>
 </main>
